@@ -1,5 +1,58 @@
 const db = require('../db/db').db;
 
+try {
+  db.count('/json-users');
+} catch (error) {
+  let user = [
+    {
+      email: 'nulla.tempor@curabitur.edu',
+      password: 'password',
+      emailVerified: false,
+      displayName: 'Deborah Ochoa',
+      photoUrl: 'http://www.host/photo.jpg',
+      phoneNumber: '+449956933282',
+      disabled: false,
+    },
+    {
+      email: 'nunc.ut.erat@classaptenttaciti.co.uk',
+      password: 'password',
+      emailVerified: false,
+      displayName: 'Maite Dixon',
+      photoUrl: 'http://www.host/photo.jpg',
+      phoneNumber: '+445234038881',
+      disabled: true,
+    },
+    {
+      email: 'odio.etiam.ligula@nonummy.org',
+      password: 'password',
+      emailVerified: true,
+      displayName: 'Savannah Watkins',
+      photoUrl: 'http://www.host/photo.jpg',
+      phoneNumber: '+449756972227',
+      disabled: true,
+    },
+    {
+      email: 'tempus.mauris.erat@enim.net',
+      password: 'password',
+      emailVerified: false,
+      displayName: 'Isaiah Stout',
+      photoUrl: 'http://www.host/photo.jpg',
+      phoneNumber: '+444619021745',
+      disabled: false,
+    },
+    {
+      email: 'malesuada.augue@nibhaliquamornare.com',
+      password: 'password',
+      emailVerified: true,
+      displayName: 'Kirsten Joseph',
+      photoUrl: 'http://www.host/photo.jpg',
+      phoneNumber: '+441519076042',
+      disabled: true,
+    },
+  ];
+  db.push(`/users`, user, true);
+  console.error('Created Users');
+}
 const setUser = ({
   id = null,
   email = null,
@@ -28,7 +81,6 @@ const setUser = ({
         disabled: Boolean(Number(disabled)),
       };
 };
-
 
 /**
  *
@@ -124,7 +176,9 @@ module.exports.updateOne = async function (req) {
   }
 
   let search =
-    queryFields && queryFields.email ? queryFields.email : bodyFields.email;
+    queryFields && queryFields.search_email
+      ? queryFields.search_email
+      : bodyFields.search_email;
   let ind = db.getIndex('/users', search, 'email');
   if (ind === -1) return {error: 'No results'};
   db.push(`/users[${ind}]`, data, false);

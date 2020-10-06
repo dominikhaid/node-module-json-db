@@ -2,61 +2,7 @@ const express = require('express');
 const router = express.Router();
 const checkReqErrors = require('../includes/status').checkReqErrors;
 const usersQuery = require('../json-db/querys/querys');
-const db = require('../json-db/db/db').db;
 
-try {
-  db.count('/json-users');
-} catch (error) {
-  let user = [
-    {
-      email: 'nulla.tempor@curabitur.edu',
-      password: 'password',
-      emailVerified: false,
-      displayName: 'Deborah Ochoa',
-      photoUrl: 'http://www.host/photo.jpg',
-      phoneNumber: '+449956933282',
-      disabled: false,
-    },
-    {
-      email: 'nunc.ut.erat@classaptenttaciti.co.uk',
-      password: 'password',
-      emailVerified: false,
-      displayName: 'Maite Dixon',
-      photoUrl: 'http://www.host/photo.jpg',
-      phoneNumber: '+445234038881',
-      disabled: true,
-    },
-    {
-      email: 'odio.etiam.ligula@nonummy.org',
-      password: 'password',
-      emailVerified: true,
-      displayName: 'Savannah Watkins',
-      photoUrl: 'http://www.host/photo.jpg',
-      phoneNumber: '+449756972227',
-      disabled: true,
-    },
-    {
-      email: 'tempus.mauris.erat@enim.net',
-      password: 'password',
-      emailVerified: false,
-      displayName: 'Isaiah Stout',
-      photoUrl: 'http://www.host/photo.jpg',
-      phoneNumber: '+444619021745',
-      disabled: false,
-    },
-    {
-      email: 'malesuada.augue@nibhaliquamornare.com',
-      password: 'password',
-      emailVerified: true,
-      displayName: 'Kirsten Joseph',
-      photoUrl: 'http://www.host/photo.jpg',
-      phoneNumber: '+441519076042',
-      disabled: true,
-    },
-  ];
-  db.push(`/users`, user, true);
-  console.error('Created Users');
-}
 
 router.get('/', (req, res) => {
   if (Object.keys(req.query).length > 0 || Object.keys(req.body).length > 0) {
