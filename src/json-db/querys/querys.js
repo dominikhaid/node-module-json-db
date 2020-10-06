@@ -126,7 +126,7 @@ module.exports.updateOne = async function (req) {
   let search =
     queryFields && queryFields.email ? queryFields.email : bodyFields.email;
   let ind = db.getIndex('/users', search, 'email');
-
+  if (ind === -1) return {error: 'No results'};
   db.push(`/users[${ind}]`, data, false);
 
   data = db.getData(`/users[${ind}]`);

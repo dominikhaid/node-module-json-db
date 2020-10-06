@@ -54,7 +54,7 @@ try {
       disabled: true,
     },
   ];
-  db.push(`/users[]`, user, true);
+  db.push(`/users`, user, true);
   console.error('Created Users');
 }
 
