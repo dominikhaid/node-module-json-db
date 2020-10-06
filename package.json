@@ -1,0 +1,8 @@
+{
+  "name": "dominikhaid-next",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "node-json-db": "^1.1.0"
+  }
+}
