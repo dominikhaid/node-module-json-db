@@ -29,26 +29,6 @@ const setUser = ({
       };
 };
 
-try {
-  var data = db.getData('/users');
-  let search = db.getData(
-    `/users[${db.getIndex('/users', 'tempus.mauris.erat@enim.net', 'email')}]`,
-  );
-  let numberOfElement = db.count('/users');
-  let ind = db.getIndex('/users', 'tempus.mauris.erat@enim.net', 'email');
-  let last = db.getData('/users[-1]');
-} catch (error) {
-  console.error(error);
-}
-
-// Deleting data
-//db.delete('/test1');
-// db.delete(
-//   '/arraytest/myarray[' + db.getIndex('/arraytest/myarray', 65464646155) + ']',
-// );
-
-// Save the data (useful if you disable the saveOnPush)
-//db.save();
 
 /**
  *

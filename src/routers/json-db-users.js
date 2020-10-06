@@ -54,11 +54,11 @@ try {
       disabled: true,
     },
   ];
-  db.push(`/json-users[]`, user, true);
+  db.push(`/users[]`, user, true);
   console.error('Created Users');
 }
 
-router.get('/json-users', (req, res) => {
+router.get('/', (req, res) => {
   if (Object.keys(req.query).length > 0 || Object.keys(req.body).length > 0) {
     usersQuery
       .findOne(req)
@@ -80,7 +80,7 @@ router.get('/json-users', (req, res) => {
   }
 });
 
-router.post('/json-users', (req, res) => {
+router.post('/', (req, res) => {
   usersQuery
     .createOne(req)
     .then(erg => {
@@ -91,7 +91,7 @@ router.post('/json-users', (req, res) => {
     });
 });
 
-router.delete('/json-users', (req, res) => {
+router.delete('/', (req, res) => {
   usersQuery
     .deleteOne(req)
     .then(erg => {
@@ -102,7 +102,7 @@ router.delete('/json-users', (req, res) => {
     });
 });
 
-router.patch('/json-users', (req, res) => {
+router.patch('/', (req, res) => {
   usersQuery
     .updateOne(req)
     .then(erg => {
@@ -113,7 +113,7 @@ router.patch('/json-users', (req, res) => {
     });
 });
 
-router.get('/json-users/search', (req, res) => {
+router.get('/search', (req, res) => {
   usersQuery
     .searchOne(req)
     .then(erg => {
@@ -124,7 +124,7 @@ router.get('/json-users/search', (req, res) => {
     });
 });
 
-router.get('/json-users/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   usersQuery
     .findOne(req)
     .then(erg => {
@@ -135,7 +135,7 @@ router.get('/json-users/:id', (req, res) => {
     });
 });
 
-router.get('/json-users/search/:email', (req, res) => {
+router.get('/search/:email', (req, res) => {
   usersQuery
     .searchOne(req)
     .then(erg => {
@@ -146,7 +146,7 @@ router.get('/json-users/search/:email', (req, res) => {
     });
 });
 
-router.post('/json-users/:email', (req, res) => {
+router.post('/:email', (req, res) => {
   usersQuery
     .createOne(req)
     .then(erg => {
@@ -157,7 +157,7 @@ router.post('/json-users/:email', (req, res) => {
     });
 });
 
-router.delete('/json-users/:email', (req, res) => {
+router.delete('/:email', (req, res) => {
   usersQuery
     .deleteOne(req)
     .then(erg => {
@@ -168,7 +168,7 @@ router.delete('/json-users/:email', (req, res) => {
     });
 });
 
-router.patch('/json-users/:email', (req, res) => {
+router.patch('/:email', (req, res) => {
   usersQuery
     .updateOne(req)
     .then(erg => {
