@@ -1,5 +1,5 @@
 @host=http://localhost/
-@api=api/users
+@api=api/json-users
 @jwt_tokken=Secret
 @search_user_id=3
 @search_displayName=Deborah Ochoa
