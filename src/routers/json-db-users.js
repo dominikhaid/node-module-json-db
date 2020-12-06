@@ -3,7 +3,6 @@ const router = express.Router();
 const checkReqErrors = require('../includes/status').checkReqErrors;
 const usersQuery = require('../json-db/querys/querys');
 
-
 router.get('/', (req, res) => {
   if (Object.keys(req.query).length > 0 || Object.keys(req.body).length > 0) {
     usersQuery
